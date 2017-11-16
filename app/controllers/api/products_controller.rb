@@ -3,15 +3,18 @@ class Api::ProductsController < ApplicationController
     product = Product.new(product_params)
     if product.save
       render json: product
+    elsif product.nil?
+      render json: nil
     else
       render json: product.errors, status: 422
     end
   end
 
   def index
-    product = Product.all
     if product
       render json: product
+    elsif product.nil?
+      render json: nil
     else
       render json: product.errors, status: 422
     end
@@ -21,6 +24,8 @@ class Api::ProductsController < ApplicationController
     product = Product.find_by_id(params[:id])
     if product
       render json: product
+    elsif product.nil?
+      render json: nil
     else
       render json: product.errors, status: 422
     end
@@ -30,6 +35,8 @@ class Api::ProductsController < ApplicationController
     product = Product.find_by_id(id: params[:id])
     if product && product.destroy
       render json: product
+    elsif product.nil?
+      render json: nil
     else
       render json: nil, status: 422
     end
@@ -39,6 +46,8 @@ class Api::ProductsController < ApplicationController
     product = Product.find_by_id(params[:id])
     if product.update_attributes(product_params)
       render json: product
+    elsif product.nil?
+      render json: nil
     else
       render json: product.errors.full_messages, status: 422
     end

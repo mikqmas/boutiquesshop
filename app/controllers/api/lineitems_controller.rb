@@ -12,6 +12,8 @@ class Api::LineitemsController < ApplicationController
     lineitem = Lineitem.all
     if lineitem
       render json: lineitem
+    elsif lineitem.nil?
+      render json: nil
     else
       render json: lineitem.errors, status: 422
     end
@@ -21,6 +23,8 @@ class Api::LineitemsController < ApplicationController
     lineitem = Lineitem.find_by_id(params[:id])
     if lineitem
       render json: lineitem
+    elsif lineitem.nil?
+      render json: nil
     else
       render json: lineitem.errors, status: 422
     end
@@ -30,6 +34,8 @@ class Api::LineitemsController < ApplicationController
     lineitem = Lineitem.find_by_id(id: params[:id])
     if lineitem && lineitem.destroy
       render json: lineitem
+    elsif lineitem.nil?
+      render json: nil
     else
       render json: nil, status: 422
     end

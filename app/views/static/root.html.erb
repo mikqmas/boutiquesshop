@@ -1,0 +1,35 @@
+      <h1>Boutique Shop</h1>
+        <button onClick="handleOnclick(this)" id="api/orders">Get Orders</button>
+        <button onClick="handleOnclick(this)" id="api/products">Get Products</button>
+        <button onClick="handleOnclick(this)" id="api/customers">Get Customers</button>
+        <button onClick="handleOnclick(this)" id="api/categories">Get Categories</button>
+
+        <form action="api/products" method="post" target="myiFrame">
+          <label for="category_name">Name</label>
+          <input type="text" name="product[name]" placeholder="burger"/>
+          <label for="category_name">Price</label>
+          <input type="number" name="product[price]" placeholder="10"/>
+          <input type="submit" value="Create Item!"/>
+        </form>
+
+        <form action="api/customers" method="post" target="myiFrame">
+          <label for="category_name">Name</label>
+          <input type="text" name="customer[name]" placeholder="John"/>
+          <input type="submit" value="Create Customers!"/>
+        </form>
+
+        <form action="api/categories" name="category" method="post" target="myiFrame">
+          <label for="category_name">Name</label>
+          <input type="text" name="category[name]" placeholder="Juice"/>
+          <input type="submit" value="Create Categories!"/>
+        </form>
+
+        <iframe name="myiFrame" id="showWindow" src="">
+        </iframe>
+
+        <script>
+          const showWindow = document.getElementById("showWindow");
+          function handleOnclick(e) {
+            showWindow.src = '/' + e.id;
+          }
+        </script>

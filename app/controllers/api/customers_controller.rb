@@ -3,6 +3,8 @@ class Api::CustomersController < ApplicationController
     customers = Customer.all
     if customers
       render json: customers
+    elsif customers.nil?
+      render json: nil
     else
       render json: customers.errors, status: 422
     end
@@ -12,6 +14,8 @@ class Api::CustomersController < ApplicationController
     customer = Customer.find_by_id(params[:id])
     if customer
       render json: customer
+    elsif customer.nil?
+      render json: nil
     else
       render json: customer.errors, status: 422
     end
@@ -30,6 +34,8 @@ class Api::CustomersController < ApplicationController
     customer = Customer.find_by_id(id: params[:id])
     if customer && customer.destroy
       render json: customer
+    elsif customer.nil?
+      render json: nil
     else
       render json: nil, status: 422
     end
@@ -39,6 +45,8 @@ class Api::CustomersController < ApplicationController
     customer = Customer.find_by_id(params[:id])
     if customer.update_attributes(customer_params)
       render json: customer
+    elsif customer.nil?
+      render json: nil
     else
       render json: customer.errors.full_messages, status: 422
     end
