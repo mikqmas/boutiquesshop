@@ -57,6 +57,8 @@ http://localhost:3000/api/orders?start_date=15&end_date=17&range=day
 }
 ```
 
+[Report](app/assets/images/report.png)
+
 The logic was to query for start to start + range.
 And continue until the start is larger than endDate.
 Nested ternary not the most readable code but felt it was better than adding more if statements. Clarification with comment should be sufficient in this case.
@@ -73,6 +75,8 @@ while(date <= endDate) do
 http://localhost:3000/api/customers/2/orders
 ```
 
+[Customer](app/assets/images/customer.png)
+
 **Additional**
 
 - Giving one-click bulk-items.
@@ -85,3 +89,8 @@ Also, maintaining a many to many association would require JOINing which can be 
 - If an inventory is low on stock and the inventory is moving quickly, there is a chance of a race-condition where an inventory is sold on multiple carts.
 One way to handle this is to decrement the inventory stock as soon as the item is added onto the cart and give the user a set amount of time to complete checkout.
 This can be implemented using the created_at field of the lineitems Table and have a expiration time before the order status is changed to completed.
+
+Future Improvements
+- Implement tax and discount calculation.
+- Implement stock tracking and analytics
+- Flush out more reporting endpoints
