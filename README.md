@@ -57,7 +57,7 @@ http://localhost:3000/api/orders?start_date=15&end_date=17&range=day
 }
 ```
 
-[Report](app/assets/images/report.png)
+![Report](docs/report.png)
 
 The logic was to query for start to start + range.
 And continue until the start is larger than endDate.
@@ -75,7 +75,7 @@ while(date <= endDate) do
 http://localhost:3000/api/customers/2/orders
 ```
 
-[Customer](app/assets/images/customer.png)
+![Customer](docs/customer.png)
 
 **Additional**
 
