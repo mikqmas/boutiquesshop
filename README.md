@@ -1,6 +1,4 @@
 == README
-**Live Version**
-[LIVE HOSTED ON HEROKU](https://bouquetsshop.herokuapp.com/)
 
 Download, unzip, `cd` into the folder and `bundle install`.
 Run the webapp `rails s`
